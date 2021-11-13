@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigation from './StackNavigation';
 
 const App = () => {
   return (
-    <View style={{flex:1,alignItems: 'center',justifyContent: 'center'}}>
-      <Text>Hola Mundo</Text>
-    </View>
+    <NavigationContainer>
+      <StackNavigation/>
+    </NavigationContainer>
   )
 }
 
