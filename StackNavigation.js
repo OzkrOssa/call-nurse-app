@@ -7,6 +7,7 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
     return (
+        
         <Stack.Navigator>
             <Stack.Screen name="Scan" component={ScanScreen} />
             <Stack.Screen name="ScanData" component={ScanDataScreen} />

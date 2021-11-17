@@ -1,13 +1,14 @@
 import React, { useState, Fragment} from 'react';
 import { TouchableOpacity, Text, Linking, View, Image, ImageBackground, BackHandler } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import styles from './scanStyle'
+import useUserContext from '../hooks/userContext';
 
 const ScanScreen = () => {
 
+    const {setResult}= useUserContext()
     const [scan, setScan] = useState(false);
     const [scanResult, setScanResult] = useState(false);
-    const [result, setResult] = useState(null);
+
 
 
     const onSuccess = (e) => {
