@@ -1,15 +1,15 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './StackNavigation';
-import { UserProvider } from './hooks/userContext';
+import { ScanProvider } from './hooks/useScan';
 
 
 const App = () => {
   return (
     <NavigationContainer>
-      <UserProvider>
+      <ScanProvider>
           <StackNavigation/>
-      </UserProvider>
+      </ScanProvider>
     </NavigationContainer>
   )
 }
