@@ -1,13 +1,16 @@
+import { useNavigation } from '@react-navigation/core';
 import React, { useState, Fragment} from 'react';
-import { TouchableOpacity, Text, Linking, View, Image, ImageBackground, BackHandler } from 'react-native';
+import { TouchableOpacity, Text, Linking, View} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import useScan from '../hooks/useScan';
+import tw from 'tailwind-rn'
 
-const ScanScreen = () => {
+const HomeScreen = ({navigation}) => {
 
-    const {setResult}= useScan()
+    const [result, setResult] = useState(null)
     const [scan, setScan] = useState(false);
     const [scanResult, setScanResult] = useState(false);
+
+    //const navigation = useNavigation();
 
 
 
@@ -39,15 +42,18 @@ const ScanScreen = () => {
 
 
         return (
-            <View>
+            <View style={tw('flex-1 justify-center items-center')}>
                 <Fragment>
                     {!scan && !scanResult &&
                         <View>
-                            <Text>Please move your camera {"\n"} over the QR Code</Text>
-                            <TouchableOpacity onPress={activeQR}>
-                                <View>
-                                <Text>Scan QR Code</Text>
-                                </View>
+                            <Text style={tw('p-3')}>Please move your camera over the QR Code</Text>
+                            <TouchableOpacity
+                                onPress={activeQR}
+                                style={tw('bg-blue-500 p-3 rounded-sm rounded-full')}
+                                >
+                                
+                                <Text style = {tw('text-center text-white')}>Scan QR Code</Text>
+                                
                             </TouchableOpacity>
                         </View>
                     }
@@ -56,12 +62,25 @@ const ScanScreen = () => {
                         <Fragment>
                             <Text>Result</Text>
                             <View>
-                                <Text>Type : {result.type}</Text>
+                                
                                 <Text>Result : {result.data}</Text>
-                                <Text numberOfLines={1}>RawData: {result.rawData}</Text>
-                                <TouchableOpacity onPress={scanAgain}>
+    
+                                <TouchableOpacity 
+                                    onPress={scanAgain}
+                                    style={tw('bg-green-500 p-3 rounded-sm rounded-full')}    
+                                    >
                                     <View>
                                         <Text>Click to scan again</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity 
+                                    onPress={() => navigation.navigate("Menu",{result:result.data})}
+                                    style={tw('bg-blue-500 p-3 rounded-sm rounded-full')}
+                                    >
+                                    <View>
+                                        <Text
+                                            style={tw('text-center text-white')}
+                                        >Continue</Text>
                                     </View>
                                 </TouchableOpacity>
                             </View>
@@ -74,7 +93,7 @@ const ScanScreen = () => {
                             onRead={onSuccess}
                             topContent={
                                 <Text>
-                                   Please move your camera {"\n"} over the QR Code
+                                   Please move your camera over the QR Code
                                 </Text>
                             }
                         />
@@ -83,5 +102,5 @@ const ScanScreen = () => {
             </View>
         );
 }
-export default ScanScreen;
+export default HomeScreen;
 

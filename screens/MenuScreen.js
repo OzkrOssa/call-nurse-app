@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import useScan from '../hooks/useScan'
+import tw from 'tailwind-rn'
 
-const ScanDataScreen = ({route}) => {
+const MenuScreen = ({route}) => {
     const { result }= route.params
     return (
-        <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}} >
+        <View style={tw('flex-1 justify-center items-center')} >
             <Text>
                 {result}
             </Text>
@@ -13,4 +13,4 @@ const ScanDataScreen = ({route}) => {
     )
 }
 
-export default ScanDataScreen
+export default MenuScreen
