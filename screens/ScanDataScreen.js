@@ -1,12 +1,27 @@
 import {useNavigation} from '@react-navigation/core';
-import React from 'react';
+import React,{useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import tw from 'twrnc';
+import firestore from '@react-native-firebase/firestore';
+
+
 
 const ScanDataScreen = ({scanAgain, result}) => {
   const navigation = useNavigation();
   const data = JSON.parse(result);
-  console.log(data.alergia_medicamentos);
+
+  useEffect(() => {
+    firestore()
+  .collection('Pacientes')
+  .add({
+    name: 'adad',
+    age: 30,
+  })
+  .then(() => {
+    console.log('User added!');
+  });
+  }, []);
+
   return (
     <View style={tw.style('flex-1 justify-center items-center')}>
       {/* Datos del QR Code   */}
@@ -16,11 +31,13 @@ const ScanDataScreen = ({scanAgain, result}) => {
         <Text style={tw.style('text-center')}>Apellido: {data.apellido}</Text>
         <Text style={tw.style('text-center')}>Edad: {data.edad}</Text>
         <Text style={tw.style('text-center')}>Estado: {data.activo}</Text>
-        <Text style={tw.style('text-center')}>Cuarto:{data.cuarto}, Cama: {data.cama}</Text>
+        <Text style={tw.style('text-center')}>
+          Cuarto:{data.cuarto}, Cama: {data.cama}
+        </Text>
         <Text style={tw.style('text-center')}>Alergias a medicamentos:</Text>
-        {data.alergia_medicamentos.map((medicamento) => 
+        {data.alergia_medicamentos.map(medicamento => (
           <Text style={tw.style('text-center')}>* {medicamento}</Text>
-        )}
+        ))}
       </View>
       {/*End Datos del QR Code   */}
 
@@ -37,7 +54,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </View>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Menu', {result: result})}
+          onPress={() => navigation.navigate('Menu',{result: result})}
           style={tw`bg-blue-500 p-3 rounded-sm rounded-full`}>
           <View>
             <Text style={tw`text-center text-white mr-6 ml-6`}>Continuar</Text>

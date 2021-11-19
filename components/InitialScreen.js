@@ -12,7 +12,7 @@ const InitialScreen = ({activeQR}) => {
       </View>
       <Text style={tw`font-semibold text-2xl`}>Scanea el codigo de la cama</Text>
       <View style={tw`flex-row p-20`}>
-        <View style={tw.style('mr-9')}>
+        <View style={tw.style('')}>
           <TouchableOpacity
             onPress={activeQR}
             style={tw`bg-blue-500 p-5 rounded-sm rounded-full`}>
