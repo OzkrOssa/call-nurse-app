@@ -1,4 +1,4 @@
-import firebase from 'import firestore from @react-native-firebase/firestore'
+import firestore from '@react-native-firebase/firestore'
 
 const data = {
     nombre: 'Oscar Daniel',
