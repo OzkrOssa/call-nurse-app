@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "74224773990",
+    "project_id": "call-nourse-app",
+    "storage_bucket": "call-nourse-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74224773990:android:85ffad1fae2ad53c6b76a7",
+        "android_client_info": {
+          "package_name": "com.callnourse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74224773990-prva1qeaek29kau0pdgkhv5nt2euflph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.callnourse",
+            "certificate_hash": "02a65b62ca35ff608cc31529fb3be0ef309d5d4e"
+          }
+        },
+        {
+          "client_id": "74224773990-mjo3qkmk5hr1vl1okc0c80873kd2b344.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQVWr3sFysloZceMITUcilYMOyjzSjv4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74224773990-mjo3qkmk5hr1vl1okc0c80873kd2b344.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
