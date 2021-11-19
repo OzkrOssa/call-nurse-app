@@ -11,15 +11,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
   const data = JSON.parse(result);
 
   useEffect(() => {
-    firestore()
-  .collection('Pacientes')
-  .add({
-    name: 'adad',
-    age: 30,
-  })
-  .then(() => {
-    console.log('User added!');
-  });
+    console.log('useEffect')
   }, []);
 
   return (
@@ -36,7 +28,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </Text>
         <Text style={tw.style('text-center')}>Alergias a medicamentos:</Text>
         {data.alergia_medicamentos.map(medicamento => (
-          <Text style={tw.style('text-center')}>* {medicamento}</Text>
+          <Text key={medicamento} style={tw.style('text-center')}>* {medicamento}</Text>
         ))}
       </View>
       {/*End Datos del QR Code   */}
