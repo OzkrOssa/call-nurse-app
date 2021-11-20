@@ -1,5 +1,5 @@
-import React, {useState, Fragment} from 'react';
-import {Text, Linking, View} from 'react-native';
+import React, {useState} from 'react';
+import {Text, Linking} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import InitialScreen from '../components/InitialScreen';
 import ScanDataScreen from './ScanDataScreen';
