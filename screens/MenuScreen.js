@@ -31,8 +31,7 @@ const MenuScreen = ({route}) => {
           <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
           <Text style={tw.style('text-center')}>{data.cuarto}</Text>
         </View>
-        
-        
+      
         <View style={tw.style('flex-row')}>
           <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
         </View>
@@ -42,6 +41,7 @@ const MenuScreen = ({route}) => {
         ))}
       </View>
         </View>
+
     )
 }
 
