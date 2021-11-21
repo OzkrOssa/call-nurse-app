@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState, Fragment} from 'react';
 import {Text, Linking, View} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
