@@ -2,12 +2,14 @@ import firestore from '@react-native-firebase/firestore'
 
 const data = {
     nombre: 'Oscar Daniel',
-    apellido: 'Ossa Gutierrez',
+    apellidos: 'Ossa Gutierrez',
+    hcl: '',
     edad: '20',
-    activo: 'true',
-    cuarto: '1',
-    cama: '1',
-    alergia_medicamentos: ['Paracetamol', 'Aspirina'],
+    entidad: '',
+    procedencia: '',
+    alergias: '1',
+    ingreso:'',
+    hora: '',
 }
 
 const addDataToFirebase = () => {

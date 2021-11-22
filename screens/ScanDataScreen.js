@@ -26,8 +26,13 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Apellido: </Text>
-          <Text style={tw.style('text-center')}>{data.apellido}</Text>
+          <Text style={tw.style('text-center font-bold')}>Apellidos: </Text>
+          <Text style={tw.style('text-center')}>{data.apellidos}</Text>
+        </View>
+
+        <View style={tw.style('flex-row')}>
+          <Text style={tw.style('text-center font-bold')}>Edad: </Text>
+          <Text style={tw.style('text-center')}>{data.hcl}</Text>
         </View>
 
         <View style={tw.style('flex-row')}>
@@ -36,21 +41,29 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Estado: </Text>
-          <Text style={tw.style('text-center')}>{data.edad ? 'Activo' : 'Inactivo'}</Text>
+          <Text style={tw.style('text-center font-bold')}>Entidad: </Text>
+          <Text style={tw.style('text-center')}>{data.entidad ? 'Activo' : 'Inactivo'}</Text>
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
-          <Text style={tw.style('text-center')}>{data.cuarto}</Text>
+          <Text style={tw.style('text-center font-bold')}>Procedencia: </Text>
+          <Text style={tw.style('text-center')}>{data.procedencia}</Text>
         </View>
+
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
+          <Text style={tw.style('text-center font-bold')}>Alergias: </Text>
+          <Text style={tw.style('text-center')}>{data.alergias}</Text>
         </View>
-        {/* <Text style={tw.style('text-center')}>{data.alergia_medicamentos}</Text> */}
-        {data.alergia_medicamentos.map(medicamento => (
-          <Text key={medicamento} style={tw.style('text-left mt-1')}> - {medicamento}</Text>
-        ))}
+
+        <View style={tw.style('flex-row')}>
+          <Text style={tw.style('text-center font-bold')}>Ingreso: </Text>
+          <Text style={tw.style('text-center')}>{data.ingreso}</Text>
+        </View>
+
+        <View style={tw.style('flex-row')}>
+          <Text style={tw.style('text-center font-bold')}>Hora: </Text>
+          <Text style={tw.style('text-center')}>{data.hora}</Text>
+        </View>
       </View>
       {/*End Datos del QR Code   */}
 
