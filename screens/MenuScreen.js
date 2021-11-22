@@ -39,29 +39,21 @@ const MenuScreen = () => {
         {/* End of Menu */}
       </View>
 
-      <View style={tw.style('flex-1 py-4 justify-center items-center')}>
+      <View style={tw.style('flex-1 -mt-6')}>
         <Swiper
+          containerStyle={{backgroundColor: "transparent"}}
           cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
           renderCard={card => {
             return (
-              <View style={tw.style('flex-1 justify-center bg-blue-200')}>
-                <Text style={tw.style('text-2xl font-semibold bg-transparent text-center')}>{card}</Text>
+              <View style={tw.style('bg-blue-200 h-3/4 rounded-xl justify-center')}>
+                <Text key={card} style={tw.style('text-2xl font-semibold bg-transparent text-center')}>{card}</Text>
               </View>
             );
-          }}
-          onSwiped={cardIndex => {
-            console.log(cardIndex);
-          }}
-          onSwipedAll={() => {
-            console.log('onSwipedAll');
           }}
           cardIndex={0}
           backgroundColor={'#FFFF'}
           stackSize={3}>
         </Swiper>
-      </View>
-      <View>
-        <Text>adad</Text>
       </View>
     </View>
   );
