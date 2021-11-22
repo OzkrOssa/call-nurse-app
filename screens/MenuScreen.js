@@ -1,48 +1,94 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-import tw from 'twrnc'
+import React from 'react';
+import {
+  StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  Alert,
+  Image,
+} from 'react-native';
 
-const MenuScreen = ({route}) => {
-    const { result }= route.params
-    const data = JSON.parse(result)
-    return (
-        <View style={tw.style('flex-1 justify-center items-center')}>
-            <View style={tw.style('m-2 text-justify flex-col')}>
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Nombre: </Text>
-          <Text style={tw.style('text-center')}>{data.nombre}</Text>
-        </View>
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Apellido: </Text>
-          <Text style={tw.style('text-center')}>{data.apellido}</Text>
-        </View>
+const Separator = () => <View style={styles.separator} />;
 
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Edad: </Text>
-          <Text style={tw.style('text-center')}>{data.edad}</Text>
-        </View>
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/img/emergency.jpg')}
+        style={styles.image}
+      />
+      <Text style={styles.title}>PRESIONE PARA EMERGENCIA.</Text>
+      <Button
+        title="EMERGENCIA"
+        color="#c20114"
+        onPress={() => Alert.alert('Solicitud EMERGENCIA enviada')}
+      />
+    </View>
+    <Separator />
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/img/Primeros-auxilios.jpg')}
+        style={styles.image}
+      />
+      <Text style={styles.title}>
+        Presione si desea asistencia de enfermería, canalizaciónes, curaciones o
+        movilidad del paciente
+      </Text>
+      <Button
+        title="Primeros Auxilios"
+        color="#c7d6d5"
+        onPress={() => Alert.alert('Solicitud Enviada')}
+      />
+    </View>
+    <Separator />
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/img/biomedica.jpg')}
+        style={styles.image}
+      />
+      <Text style={styles.title}>
+        Para soporte técnico de equipo biomédico presione este botón.
+      </Text>
+      <Button
+        title="Soporte BIOMEDICA"
+        color="#14213d"
+        onPress={() => Alert.alert('Llamando a servicio Técnico')}
+      />
+    </View>
+    <Separator />
+    
+  </SafeAreaView>
+);
 
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Estado: </Text>
-          <Text style={tw.style('text-center')}>{data.edad ? 'Activo' : 'Inactivo'}</Text>
-        </View>
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 3,
+    marginHorizontal: 32,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  image: {
+    borderRadius: 70,
+    resizeMode: 'cover',
+    width: 180,
+    height: 120,
+    
+  },
+});
 
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
-          <Text style={tw.style('text-center')}>{data.cuarto}</Text>
-        </View>
-      
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
-        </View>
-        
-        {data.alergia_medicamentos.map(medicamento => (
-          <Text key={medicamento} style={tw.style('text-left mt-1')}> - {medicamento}</Text>
-        ))}
-      </View>
-        </View>
-
-    )
-}
-
-export default MenuScreen
+export default App;

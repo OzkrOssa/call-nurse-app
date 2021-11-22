@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState, Fragment} from 'react';
-import {Text, Linking, View} from 'react-native';
+import {Text, Linking } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import InitialScreen from '../components/InitialScreen';
 import ScanDataScreen from './ScanDataScreen';
@@ -41,9 +41,9 @@ const HomeScreen = () => {
 
   return (
     <>
-    
+
         {!scan && !scanResult && (
-            
+
             <InitialScreen
                 activeQR={activeQR}
             />

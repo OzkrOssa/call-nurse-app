@@ -1,9 +1,8 @@
+/* eslint-disable prettier/prettier */
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import tw from 'twrnc';
-
-
 
 const ScanDataScreen = ({scanAgain, result}) => {
   const navigation = useNavigation();
@@ -25,6 +24,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
           <Text style={tw.style('text-center font-bold')}>Nombre: </Text>
           <Text style={tw.style('text-center')}>{data.nombre}</Text>
         </View>
+
         <View style={tw.style('flex-row')}>
           <Text style={tw.style('text-center font-bold')}>Apellido: </Text>
           <Text style={tw.style('text-center')}>{data.apellido}</Text>
@@ -44,8 +44,6 @@ const ScanDataScreen = ({scanAgain, result}) => {
           <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
           <Text style={tw.style('text-center')}>{data.cuarto}</Text>
         </View>
-        
-        
         <View style={tw.style('flex-row')}>
           <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
         </View>
