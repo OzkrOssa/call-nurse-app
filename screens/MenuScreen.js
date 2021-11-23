@@ -1,8 +1,7 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/core';
-import {View, Text, TouchableOpacity, Button, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Alert, StyleSheet, Image} from 'react-native';
 import tw from 'twrnc';
-import Asistencia from '../components/menu/Asistencia';
 import Swiper from 'react-native-swiper';
 const MenuScreen = () => {
   const navigation = useNavigation();
@@ -26,14 +25,44 @@ const MenuScreen = () => {
       </View> */}
       <View style={tw.style('flex-1')}>
         <Swiper style={styles.wrapper} showsButtons={true}>
-          <View style={styles.slide1}>
-            <Text style={styles.text}>Hello Swiper</Text>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center')}>
+            <Image
+              source={require('../assets/img/emergency.png')}
+              style={tw.style('h-40 w-40')}
+            />
+            <Text>Precione para emergencia</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => Alert.alert('Emergencias')}
+            >
+              <Text>EMERGENCIA</Text>
+            </TouchableOpacity>
           </View>
-          <View style={styles.slide2}>
-            <Text style={styles.text}>Beautiful</Text>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
+            <Image
+              source={require('../assets/img/primero-auxilios.png')}
+              style={tw.style('h-32 w-32')}
+            />
+            <Text style={tw.style('text-center p-4')}>Precione si desea asistencia de enfermeria, canalizaciones curaciones o movilidad del paciente</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => Alert.alert('Primeros Auxilios')}
+            >
+              <Text>PRIMEROS AUXILIOS</Text>
+            </TouchableOpacity>
           </View>
-          <View style={styles.slide3}>
-            <Text style={styles.text}>And simple</Text>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
+            <Image
+              source={require('../assets/img/biomedica.png')}
+              style={tw.style('h-40 w-40')}
+            />
+            <Text style={tw.style('text-center p-4')}>Soporte medico de equipo biomedico</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => Alert.alert('Soporte medico de equipo biomedico')}
+            >
+              <Text>SOPORTE BIOMEDICO</Text>
+            </TouchableOpacity>
           </View>
         </Swiper>
       </View>
