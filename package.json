@@ -22,6 +22,7 @@
     "react-native-qrcode-scanner": "^1.5.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
+    "react-native-swiper": "^1.6.0",
     "react-native-webview": "^11.14.3",
     "twrnc": "^2.0.7"
   },
