@@ -31,7 +31,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Edad: </Text>
+          <Text style={tw.style('text-center font-bold')}>Identificación: </Text>
           <Text style={tw.style('text-center')}>{data.hcl}</Text>
         </View>
 
