@@ -1,28 +1,14 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/core';
-import {View, Text, TouchableOpacity, Alert, StyleSheet, Image} from 'react-native';
+import {View, Text, TouchableOpacity,StyleSheet, Image} from 'react-native';
 import tw from 'twrnc';
 import Swiper from 'react-native-swiper';
-const MenuScreen = () => {
-  const navigation = useNavigation();
+import {addDataToFirebase} from '../services/firebase';
+
+const MenuScreen = ({route}) => {
+  const { data } = route.params;
+  console.log(data)
   return (
     <View style={tw.style('flex-1')}>
-      {/* <View style={tw.style('flex-1 -mt-6')}>
-        <Swiper
-          containerStyle={{backgroundColor: "transparent"}}
-          cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
-          renderCard={card => {
-            return (
-              <View style={tw.style('bg-blue-200 h-3/4 rounded-xl justify-center')}>
-                <Text key={card} style={tw.style('text-2xl font-semibold bg-transparent text-center')}>{card}</Text>
-              </View>
-            );
-          }}
-          cardIndex={0}
-          backgroundColor={'#FFFF'}
-          stackSize={3}>
-        </Swiper>
-      </View> */}
       <View style={tw.style('flex-1')}>
         <Swiper style={styles.wrapper} showsButtons={true}>
           <View style={tw.style('flex-1 -mt-10 justify-center items-center')}>
@@ -33,9 +19,8 @@ const MenuScreen = () => {
             <Text>Precione para emergencia</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
-              onPress={() => Alert.alert('Emergencias')}
-            >
-              <Text>EMERGENCIA</Text>
+              onPress={() => addDataToFirebase({...data,type:"Emergencia",time:new Date()})}>
+              <Text>EMERGENCIA</Text> 
             </TouchableOpacity>
           </View>
           <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
@@ -46,8 +31,7 @@ const MenuScreen = () => {
             <Text style={tw.style('text-center p-4')}>Precione si desea asistencia de enfermeria, canalizaciones curaciones o movilidad del paciente</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
-              onPress={() => Alert.alert('Primeros Auxilios')}
-            >
+              onPress={() => addDataToFirebase({...data,type:"Primeros Auxilios",time:new Date()})}>
               <Text>PRIMEROS AUXILIOS</Text>
             </TouchableOpacity>
           </View>
@@ -59,7 +43,7 @@ const MenuScreen = () => {
             <Text style={tw.style('text-center p-4')}>Soporte medico de equipo biomedico</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
-              onPress={() => Alert.alert('Soporte medico de equipo biomedico')}
+              onPress={() => addDataToFirebase({...data,type:"Biomedico",time:new Date()})}
             >
               <Text>SOPORTE BIOMEDICO</Text>
             </TouchableOpacity>

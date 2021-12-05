@@ -70,7 +70,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
 
         <TouchableOpacity
         //
-          onPress={() => navigation.navigate('Menu')}
+          onPress={() => navigation.navigate('Menu',{ data:data })}
           style={tw`bg-blue-500 p-3 rounded-sm rounded-full`}>
           <View>
             <Text style={tw`text-center text-white mr-6 ml-6`}>Continuar</Text>
