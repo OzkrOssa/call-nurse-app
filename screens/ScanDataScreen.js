@@ -6,9 +6,9 @@ import tw from 'twrnc';
 
 
 const ScanDataScreen = ({scanAgain, result}) => {
+
   const navigation = useNavigation();
   const data = JSON.parse(result);
-
 
   return (
     <View style={tw.style('flex-1 justify-center items-center')}>
@@ -63,14 +63,14 @@ const ScanDataScreen = ({scanAgain, result}) => {
             onPress={scanAgain}
             style={tw`bg-green-500 p-3 rounded-sm rounded-full`}>
             <View>
-              <Text style={tw`text-center text-white`}>Scanea de Nuevo</Text>
+              <Text style={tw`text-center text-white`}>Escanear de nuevo</Text>
             </View>
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity
         //
-          onPress={() => navigation.navigate('Menu',{result: result})}
+          onPress={() => navigation.navigate('Menu',{ data:data })}
           style={tw`bg-blue-500 p-3 rounded-sm rounded-full`}>
           <View>
             <Text style={tw`text-center text-white mr-6 ml-6`}>Continuar</Text>

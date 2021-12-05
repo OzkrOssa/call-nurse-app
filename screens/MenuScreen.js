@@ -1,48 +1,84 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-import tw from 'twrnc'
+import React from 'react';
+import {View, Text, TouchableOpacity,StyleSheet, Image} from 'react-native';
+import tw from 'twrnc';
+import Swiper from 'react-native-swiper';
+import {addDataToFirebase} from '../services/firebase';
 
 const MenuScreen = ({route}) => {
-    const { result }= route.params
-    const data = JSON.parse(result)
-    return (
-        <View style={tw.style('flex-1 justify-center items-center')}>
-            <View style={tw.style('m-2 text-justify flex-col')}>
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Nombre: </Text>
-          <Text style={tw.style('text-center')}>{data.nombre}</Text>
-        </View>
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Apellido: </Text>
-          <Text style={tw.style('text-center')}>{data.apellido}</Text>
-        </View>
-
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Edad: </Text>
-          <Text style={tw.style('text-center')}>{data.edad}</Text>
-        </View>
-
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Estado: </Text>
-          <Text style={tw.style('text-center')}>{data.edad ? 'Activo' : 'Inactivo'}</Text>
-        </View>
-
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
-          <Text style={tw.style('text-center')}>{data.cuarto}</Text>
-        </View>
-        
-        
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
-        </View>
-        
-        {data.alergia_medicamentos.map(medicamento => (
-          <Text key={medicamento} style={tw.style('text-left mt-1')}> - {medicamento}</Text>
-        ))}
+  const { data } = route.params;
+  console.log(data)
+  return (
+    <View style={tw.style('flex-1')}>
+      <View style={tw.style('flex-1')}>
+        <Swiper style={styles.wrapper} showsButtons={true}>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center')}>
+            <Image
+              source={require('../assets/img/emergency.png')}
+              style={tw.style('h-40 w-40')}
+            />
+            <Text>Precione para emergencia</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => addDataToFirebase({...data,type:"Emergencia",time:new Date()})}>
+              <Text>EMERGENCIA</Text> 
+            </TouchableOpacity>
+          </View>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
+            <Image
+              source={require('../assets/img/primero-auxilios.png')}
+              style={tw.style('h-32 w-32')}
+            />
+            <Text style={tw.style('text-center p-4')}>Precione si desea asistencia de enfermeria, canalizaciones curaciones o movilidad del paciente</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => addDataToFirebase({...data,type:"Primeros Auxilios",time:new Date()})}>
+              <Text>PRIMEROS AUXILIOS</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
+            <Image
+              source={require('../assets/img/biomedica.png')}
+              style={tw.style('h-40 w-40')}
+            />
+            <Text style={tw.style('text-center p-4')}>Soporte medico de equipo biomedico</Text>
+            <TouchableOpacity
+              style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
+              onPress={() => addDataToFirebase({...data,type:"Biomedico",time:new Date()})}
+            >
+              <Text>SOPORTE BIOMEDICO</Text>
+            </TouchableOpacity>
+          </View>
+        </Swiper>
       </View>
-        </View>
-    )
-}
+    </View>
+  );
+};
 
-export default MenuScreen
+const styles = StyleSheet.create({
+  wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});
+
+export default MenuScreen;
