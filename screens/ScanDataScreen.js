@@ -8,7 +8,8 @@ import tw from 'twrnc';
 const ScanDataScreen = ({scanAgain, result}) => {
 
   const navigation = useNavigation();
-  const data = JSON.parse(result);
+  const data = JSON.parse(result)
+  console.log(typeof data)
 
   return (
     <View style={tw.style('flex-1 justify-center items-center')}>
@@ -37,7 +38,7 @@ const ScanDataScreen = ({scanAgain, result}) => {
 
         <View style={tw.style('flex-row')}>
           <Text style={tw.style('text-center font-bold')}>Estado: </Text>
-          <Text style={tw.style('text-center')}>{data.edad ? 'Activo' : 'Inactivo'}</Text>
+          <Text style={tw.style('text-center')}>{data.activo=='true' ? 'Activo' : 'Inactivo'}</Text>
         </View>
 
         <View style={tw.style('flex-row')}>
@@ -46,13 +47,13 @@ const ScanDataScreen = ({scanAgain, result}) => {
         </View>
         
         
-        <View style={tw.style('flex-row')}>
+        {/* <View style={tw.style('flex-row')}>
           <Text style={tw.style('text-center font-bold')}>Alergias a medicamentos:</Text>
-        </View>
+        </View> */}
         {/* <Text style={tw.style('text-center')}>{data.alergia_medicamentos}</Text> */}
-        {data.alergia_medicamentos.map(medicamento => (
+        {/* data.alergia_medicamentos.map(medicamento => (
           <Text key={medicamento} style={tw.style('text-left mt-1')}> - {medicamento}</Text>
-        ))}
+        )) */}
       </View>
       {/*End Datos del QR Code   */}
 
