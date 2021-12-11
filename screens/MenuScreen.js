@@ -16,11 +16,11 @@ const MenuScreen = ({route}) => {
               source={require('../assets/img/emergency.png')}
               style={tw.style('h-40 w-40')}
             />
-            <Text>Precione para emergencia</Text>
+            <Text style={tw.style('text-gray-500')}>Precione para emergencia</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
               onPress={() => addDataToFirebase({...data,type:"Emergencia",time:new Date()})}>
-              <Text>EMERGENCIA</Text> 
+              <Text style={tw.style('text-center text-gray-600')}>EMERGENCIA</Text> 
             </TouchableOpacity>
           </View>
           <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
@@ -28,11 +28,11 @@ const MenuScreen = ({route}) => {
               source={require('../assets/img/primero-auxilios.png')}
               style={tw.style('h-32 w-32')}
             />
-            <Text style={tw.style('text-center p-4')}>Precione si desea asistencia de enfermeria, canalizaciones curaciones o movilidad del paciente</Text>
+            <Text style={tw.style('text-center p-4 text-gray-500')}>Precione si desea asistencia de enfermeria, canalizaciones curaciones o movilidad del paciente</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
               onPress={() => addDataToFirebase({...data,type:"Primeros Auxilios",time:new Date()})}>
-              <Text>PRIMEROS AUXILIOS</Text>
+              <Text style={tw.style('text-center text-gray-600')}>PRIMEROS AUXILIOS</Text>
             </TouchableOpacity>
           </View>
           <View style={tw.style('flex-1 -mt-10 justify-center items-center p-3')}>
@@ -40,12 +40,12 @@ const MenuScreen = ({route}) => {
               source={require('../assets/img/biomedica.png')}
               style={tw.style('h-40 w-40')}
             />
-            <Text style={tw.style('text-center p-4')}>Soporte medico de equipo biomedico</Text>
+            <Text style={tw.style('text-center p-4 text-gray-500')}>Soporte medico de equipo biomedico</Text>
             <TouchableOpacity
               style={tw.style('bg-blue-200 rounded-xl p-3 mt-8')}
               onPress={() => addDataToFirebase({...data,type:"Biomedico",time:new Date()})}
             >
-              <Text>SOPORTE BIOMEDICO</Text>
+              <Text style={tw.style('text-center text-gray-600')}>SOPORTE BIOMEDICO</Text>
             </TouchableOpacity>
           </View>
         </Swiper>

@@ -10,7 +10,7 @@ const InitialScreen = ({activeQR}) => {
           source={require('../assets/img/call-nourse-nbg.png')}
         />
       </View>
-      <Text style={tw`font-semibold text-2xl`}>Scanea el codigo de la cama</Text>
+      <Text style={tw`font-semibold text-2xl text-gray-500`}>Escanea el codigo de la cama</Text>
       <View style={tw`flex-row p-20`}>
         <View style={tw.style('')}>
           <TouchableOpacity

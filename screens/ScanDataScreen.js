@@ -21,29 +21,29 @@ const ScanDataScreen = ({scanAgain, result}) => {
           />
       </View>
       <View style={tw.style('m-2 text-justify flex-col')}>
-        <Text style={tw.style('text-center m-5 text-3xl font-semibold')}>BIENVENIDO</Text>
+        <Text style={tw.style('text-center m-5 text-3xl font-semibold text-black')}>BIENVENIDO</Text>
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Nombre: </Text>
-          <Text style={tw.style('text-center')}>{data.nombre}</Text>
+          <Text style={tw.style('text-center font-bold text-black')}>Nombre: </Text>
+          <Text style={tw.style('text-center text-gray-500')}>{data.nombre}</Text>
         </View>
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Apellido: </Text>
-          <Text style={tw.style('text-center')}>{data.apellido}</Text>
-        </View>
-
-        <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Edad: </Text>
-          <Text style={tw.style('text-center')}>{data.edad}</Text>
+          <Text style={tw.style('text-center font-bold text-black')}>Apellido: </Text>
+          <Text style={tw.style('text-center text-gray-500')}>{data.apellido}</Text>
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Estado: </Text>
-          <Text style={tw.style('text-center')}>{data.activo=='true' ? 'Activo' : 'Inactivo'}</Text>
+          <Text style={tw.style('text-center font-bold text-black')}>Edad: </Text>
+          <Text style={tw.style('text-center text-gray-500')}>{data.edad}</Text>
         </View>
 
         <View style={tw.style('flex-row')}>
-          <Text style={tw.style('text-center font-bold')}>Habitacion: </Text>
-          <Text style={tw.style('text-center')}>{data.cuarto}</Text>
+          <Text style={tw.style('text-center font-bold text-black')}>Estado: </Text>
+          <Text style={tw.style('text-center text-gray-500')}>{data.activo=='true' ? 'Activo' : 'Inactivo'}</Text>
+        </View>
+
+        <View style={tw.style('flex-row')}>
+          <Text style={tw.style('text-center font-bold text-black')}>Habitacion: </Text>
+          <Text style={tw.style('text-center text-gray-500')}>{data.cuarto}</Text>
         </View>
         
         

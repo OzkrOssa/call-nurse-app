@@ -3,6 +3,7 @@ import {Text, Linking} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import InitialScreen from '../components/InitialScreen';
 import ScanDataScreen from './ScanDataScreen';
+import tw from 'twrnc';
 
 const HomeScreen = () => {
   const [result, setResult] = useState(null);
@@ -59,7 +60,7 @@ const HomeScreen = () => {
                 reactivate={true}
                 showMarker={true}
                 onRead={onSuccess}
-                topContent={<Text>Please move your camera over the QR Code</Text>}
+                topContent={<Text style={tw.style("text-black")}>Please move your camera over the QR Code</Text>}
             />
         )}
 
